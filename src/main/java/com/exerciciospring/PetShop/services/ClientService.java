@@ -29,5 +29,10 @@ public class ClientService {
 		repo.save(obj);
 		return obj;
 	}
+	
+	public void delete(Long id) {
+		find(id);
+		repo.deleteById(id);
+	}
 
 }
