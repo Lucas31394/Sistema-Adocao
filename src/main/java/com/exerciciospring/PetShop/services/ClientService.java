@@ -34,5 +34,17 @@ public class ClientService {
 		find(id);
 		repo.deleteById(id);
 	}
+	
+	public Client update(Long id, Client obj) {
+		Client newObj = repo.getOne(id);
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+
+	private void updateData(Client newObj, Client obj) {
+		newObj.setName(obj.getName());
+		newObj.setEmail(obj.getEmail());
+		newObj.setPhone(obj.getPhone());
+	}
 
 }
