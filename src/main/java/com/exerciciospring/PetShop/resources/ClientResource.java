@@ -16,5 +16,4 @@ public class ClientResource {
 		Client c = new Client(1L, "Lucas Pereira", "lucas@gmail.com", "999999999");
 		return ResponseEntity.ok().body(c);
 	}
-
 }
