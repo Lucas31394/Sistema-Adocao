@@ -23,5 +23,11 @@ public class ClientService {
 	public List<Client> findAll() {
 		return repo.findAll();
 	}
+	
+	public Client insert(Client obj) {
+		obj.setId(null);
+		repo.save(obj);
+		return obj;
+	}
 
 }
