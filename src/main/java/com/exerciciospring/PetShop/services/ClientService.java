@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.exerciciospring.PetShop.domain.Client;
 import com.exerciciospring.PetShop.repositories.ClientRepository;
+import com.exerciciospring.PetShop.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClientService {
@@ -17,7 +18,7 @@ public class ClientService {
 	
 	public Client find(Long id) {
 		Optional<Client> obj = repo.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ObjectNotFoundException(id));
 	}
 	
 	public List<Client> findAll() {
